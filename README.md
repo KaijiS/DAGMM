@@ -1,6 +1,6 @@
 # DAGMM
 
-DAGMM(https://openreview.net/pdf?id=BJJLHbb0-)をchainerを用いてインプリ  
+[DAGMM](https://openreview.net/pdf?id=BJJLHbb0-)をchainerを用いてインプリ  
 
 例としてArrhythmiaデータセットを用いた．  
 
