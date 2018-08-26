@@ -87,7 +87,6 @@ class DAGMM(Chain):
 
         # GMM
         # 各サンプルの各分布への帰属確率から、各分布の混合比、平均ベクトル、共分散行列を得る
-        print(chainer.config.train)
         if chainer.config.train:
             phi = self._phi(gamma)
             mu = self._mu(z,gamma)
