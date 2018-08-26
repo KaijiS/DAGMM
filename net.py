@@ -38,7 +38,7 @@ class DAGMM(Chain):
 
         def lf(x):
             y, energy, sigma = self.fwd(x, isTraining=True, gpu=gpu)
-            # 		reconstLoss = F.mean_squared_error(x, y) #損失関数
+            # reconstLoss = F.mean_squared_error(x, y) # mseで誤差は計算しない？
             reconstLoss = F.sum(F.squared_error(x,y)) / len(x) # 再構築誤差(ミニバッチ平均)
             avgEnergy = F.sum(energy) / len(x) # エネルギー(ミニバッチ平均)
             # 正則化項について
