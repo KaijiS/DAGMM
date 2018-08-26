@@ -1,7 +1,6 @@
 #coding:utf-8
 #!/usr/bin/env python
 
-import os
 import argparse
 import math
 
@@ -21,13 +20,13 @@ def train():
     parser = argparse.ArgumentParser(description='DAGMM')
     parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--batchsize', '-b', type=int, default=128, help='Number of images in each mini-batch')
-    parser.add_argument('--epoch', '-e', type=int, default=20, help='Number of sweeps over the dataset to train')
+    parser.add_argument('--epoch', '-e', type=int, default=10000, help='Number of sweeps over the dataset to train')
     parser.add_argument('--cn_h_unit', type=int, default=10, help='Number of Compression Network hidden units')
     parser.add_argument('--cn_z_unit', type=int, default=2, help='Number of Compression Network z units')
     parser.add_argument('--en_h_unit', type=int, default=10 ,help='Number of Estimation Network hidden units')
     parser.add_argument('--en_o_unit', type=int, default=2 ,help='Number of Estimation Network output units')
     parser.add_argument('--out', '-o', default='result',help='Directory to output the result')
-    parser.add_argument('--frequency', '-f', type=int, default=5, help='Frequency of taking a snapshot')
+    parser.add_argument('--frequency', '-f', type=int, default=20, help='Frequency of taking a snapshot')
     parser.add_argument('--resume', '-r', type=int, help='Resume the training from snapshot that is designated epoch number')
     args = parser.parse_args()
 
