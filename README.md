@@ -15,14 +15,14 @@
 `python3 train.py`  
 
 GPUで演算する場合は引数を用意  
-`python3 train.py -g [デバイス番号>0]`
+`python3 train.py -g [デバイス番号>=0]`
 
 その他の引数の種類は  
 `python3 train.py -h`  
 で確認できる．
 
 主にいじると思われる引数は，  
-- `-g` GPU使用するか否か  
+- `-g` GPU使用するならデバイス番号 
 - `-e` 何回学習するかのepoch数  
 - `-f` 何epoch毎に学習モデルを保存するか  
 - `-r` 保存されたモデルから学習を再開するなら何epochから開始か
