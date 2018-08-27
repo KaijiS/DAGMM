@@ -59,7 +59,8 @@ def test():
 
     print("------------------")
     print("Health trainData Energy")
-    _, _, _, y_htr = model.fwd(trainData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, _, y_htr = model.fwd(trainData)
     # print(y_htr.data)
     print('# mse: {}'.format(F.mean_squared_error(trainData, y_htr)))
     se_htr = F.sum(F.squared_error(trainData, y_htr),axis=1)
@@ -69,7 +70,8 @@ def test():
 
     print("------------------")
     print("Health testData Energy")
-    _, _, _, y_hte = model.fwd(validData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, _, y_hte = model.fwd(validData)
     # print(y_hte.data)
     print('# mse: {}'.format(F.mean_squared_error(validData, y_hte)))
     se_hte = F.sum(F.squared_error(validData, y_hte),axis=1)
@@ -78,7 +80,8 @@ def test():
 
     print("------------------")
     print("Disease testData Energy")
-    _, _, _, y_di = model.fwd(diseaseData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, _, y_di = model.fwd(diseaseData)
     # print(y_di.data)
     print('# mse: {}'.format(F.mean_squared_error(diseaseData, y_di)))
     se_di = F.sum(F.squared_error(diseaseData, y_di),axis=1)

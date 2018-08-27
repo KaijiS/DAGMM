@@ -59,17 +59,20 @@ def test():
 
     print("------------------")
     print("Health trainData Energy")
-    _, _, gamma_htr, _ = model.fwd(trainData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, gamma_htr, _ = model.fwd(trainData)
     # print(gamma_htr.data)
 
     print("------------------")
     print("Health testData Energy")
-    _, _, gamma_hte, _ = model.fwd(validData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, gamma_hte, _ = model.fwd(validData)
     # print(gamma_hte.data)
 
     print("------------------")
     print("Disease testData Energy")
-    _, _, gamma_di, _ = model.fwd(diseaseData)
+    with chainer.using_config('train', False), chainer.using_config('enable_backprop', False):
+        _, _, gamma_di, _ = model.fwd(diseaseData)
     # print(gamma_di.data)
 
     plt.hist(gamma_htr[:,0].data, bins=100, alpha=0.4, histtype='stepfilled', color='b')
